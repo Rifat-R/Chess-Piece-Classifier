@@ -1,0 +1,51 @@
+# OCR assignment report
+
+## Feature Extraction (Max 200 Words)
+
+I used PCA for dimensionality reduction and feature extraction. PCA was used by using the process_training_data
+function to find the mean of fvectors_train to get standardised data by centering it. Then I got the
+covariance matrix using numpy, and with this I can calculate the eigenvectors and eigenvalues using numpy. I sorted the eigenvectors based
+off the top eigenvalues (for maximum variability) and stored the eigenvectors in the model. The 10 eigenvectors
+were then used to multiply with fvectors_test to get 10 features for every square.
+
+I used PCA because it was used to reduce the number of features (from 2500 to 10) and it also
+helps with noise reduction, as it only focuses on the most significant variability.
+
+
+## Classifier (Max 200 Words)
+
+I used a KNN classifier for my square classifier. Reason why I used a KNN classifier is due to
+it being simple and intuitive, and it gave a very high accuracy percentage. There is also no need
+of a training phase for the KNN classifier. For calculating distance between the train and test points
+I used euclidean distance.
+
+I've also used majority voting for the classifier. This is because
+it reduces the sensitivity of outliers hence making it more robust to noisy data. This led to an improvement in
+performance.
+
+KNN is memory-intensive which is a con, however, since the training data isn't all that much. I figured it was
+a good approach for the classifier and does not take up too much memory.
+
+## Board Context (Max 200 Words)
+
+For the full-board classification, I was only able to implement one approach and that was to check
+whether pawns are on the 8th rank of the board (first 8 squares and the last 8 squares). This is because
+it would be an impossible state for the board to be in as if a pawn were there, then it should have been
+promoted.
+
+So the approach I used was if the square classifier found a pawn in the 8th rank, it would look at the possible labels
+from the KNN function and get the second possible label (another piece other than the pawn).
+
+
+## Performance
+
+Running evaluation with the clean data.
+Square mode: score = 98.4% correct
+Board mode: score = 98.4% correct
+Running evaluation with the noisy data.
+Square mode: score = 94.4% correct
+Board mode: score = 94.5% correct
+
+## Other information (Optional, Max 100 words)
+
+N/A
