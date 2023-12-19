@@ -2,7 +2,7 @@
 
 This Python project was a class assignment to make a chess piece classifier by using pre-existing training data of over 6400 chessboard squares. The contraints on this project was to use only 10 features to make a robust classifier for clean and noisy chess square images. 
 
-I reduced and selected 10 features using Principal Component Analysis (PCA) then using K-Nearest Neighbot (KNN) as my classifier.
+I reduced and selected 10 features using Principal Component Analysis (PCA) then using K-Nearest Neighbor (KNN) as my classifier.
 
 ## Stats:
 ### Running evaluation with the clean data.
